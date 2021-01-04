@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dog API - Display Dog by Breed</title>
+    <title>Dog API - Display Multiple Dogs</title>
     <link rel="shortcut icon" href="">
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>Dog API: Display Dog by Breed</h1>
+        <h1>Dog API: Display Multiple Dogs (JSON)</h1>
 
         <form>
-          <label for "dog pics">What type of dog would you like to see?</label>
-          <input id ="typeOfDog" type="text" name="typeOfDog" autofocus:"on" required placeholder="Enter the dog breed in lower case:">
+          <label for "dog pics">How many dogs do you want to see?</label>
+          <input id ="numberOfDogs" type="number" value="3" name="numberOfDogs" autofocus:"on">
           <button type="submit">Enter</button>
         </form>
     
         <section class="results hidden">
-          <h2>Look at this dog!</h2>
+          <h2>Look at these dogs!</h2>
           <img class="results-img" alt="placeholder">
 
 
