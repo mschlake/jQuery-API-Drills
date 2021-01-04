@@ -16,5 +16,12 @@ body {
 }
 
 form input[type=text] {
-  width:260px;
+  width:225px;
+}
+
+.sizeImages {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  margin: 10px;
 }
