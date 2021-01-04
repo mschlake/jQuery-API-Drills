@@ -1,31 +1,34 @@
 'use strict';
 
-function getDogImage() {
-  var typeOfDog = $('input').val();
-  fetch('https://dog.ceo/api/breed/'+typeOfDog+'/images/random')
+function getDogImages() {
+  let numberOfDogs = $('input').val();
+  fetch('https://dog.ceo/api/breeds/image/random/'+numberOfDogs)
     .then(response => response.json())
     .then(responseJson => 
       displayResults(responseJson))
-    .catch(error => alert('Something went wrong. Try again later.'));
+    .catch(error => console.log(error));
 }
 
 function displayResults(responseJson) {
-  console.log(responseJson);
-  if(responseJson.status === 'success'){
-   $('.results-img').replaceWith(
-    `<img src="${responseJson.message}" class="results-img">`
-  )
+$('.results-img').empty();
+for(let i=0;i<responseJson.message.length;i++){
+  console.log(responseJson.message[i]);
+  $('.results-img').append(
+    `<img src="${responseJson.message[i]}" class ="sizeImages">`);
+}
   $('.results').removeClass('hidden');
-  }
-  else{
-    alert (responseJson.message);
-  }
 }
 
 function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
-    getDogImage();
+   let numberOfDogs = $('input').val();
+    if(numberOfDogs>0 && numberOfDogs<51){
+      getDogImages();
+    }
+    else{
+      alert('Please enter a number 1 - 50')
+    }
   });
 }
 
