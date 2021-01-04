@@ -1,7 +1,7 @@
 # jQuery-API-Drills
 Old jQuery Dog API drills. (HTML, CSS, jQuery)
 
-Master - Display Dog By Breed
+Master - Display an Image of a dog breed input by the user.
 
 Images - Display a number of dog images based on the number input by user 
 
