@@ -1,8 +1,8 @@
 'use strict';
 
-function getDogImage() {
-  var typeOfDog = $('input').val();
-  fetch('https://dog.ceo/api/breed/'+typeOfDog+'/images/random')
+function getDogImages() {
+  let numberOfDogs = $('input').val();
+  fetch('https://dog.ceo/api/breeds/image/random/'+numberOfDogs)
     .then(response => response.json())
     .then(responseJson => 
       displayResults(responseJson))
@@ -11,21 +11,18 @@ function getDogImage() {
 
 function displayResults(responseJson) {
   console.log(responseJson);
-  if(responseJson.status === 'success'){
-   $('.results-img').replaceWith(
-    `<img src="${responseJson.message}" class="results-img">`
-  )
-  $('.results').removeClass('hidden');
-  }
-  else{
-    alert (responseJson.message);
-  }
 }
 
-function watchForm() {
+function watchForm(numberOfDogs) {
   $('form').submit(event => {
     event.preventDefault();
-    getDogImage();
+    let numberOfDogs = $('input').val();
+    if(numberOfDogs>0 && numberOfDogs<51){
+      getDogImages();
+    }
+    else{
+      alert('Please enter a number 1 - 50')
+    }
   });
 }
 
